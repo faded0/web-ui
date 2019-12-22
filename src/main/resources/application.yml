@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: scw-user           #应用程序名称
+  datasource:                #配置数据源
+    url: jdbc:mysql://47.102.204.189:3306/atcrowdfunding?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource        #使用Druid数据库连接池
+  redis:        #整合redis
+    password:   
+    host: 47.102.204.189      #IP地址
+    port: 16379                #端口号
+    
+server:
+  port: 7000                 #端口号
+
+eureka:
+  instance:
+    ip-address: localhost     #本地服务访问的IP地址
+    prefer-ip-address: true   #是支持注册中心使用当前的IP地址
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka/   #注册到注册中心
+mybatis:          #配置mybatis的配置文件
+  mapper-locations: classpath:mybatis/mapper/*.xml
+  config-location: classpath:mybatis/mybatis-config.xml
+#配置日志文件
+logging:
+  file: F:/scw-log.txt
+  level:
+    root: warn         #指定所有的包输出的级别
+    com.atguigu.scw: debug     #指定自己项目下的日志输出级别
+  
+  
+  
